@@ -1,24 +1,209 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline - World Cup</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --navy: #0a192f;
+            --navy-light: #112240;
+            --accent: #00f2ff;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--navy);
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.3rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--gold); }
+
+        .navbar { display: flex; }
+
+        .navbar a {
+            font-size: 1rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 2.5rem;
+            transition: .3s;
+            position: relative;
+        }
+
+        .navbar a:hover, 
+        .navbar a.active { color: var(--gold); }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -6px;
+            width: 0; height: 2px;
+            background: var(--gold);
+            transition: .3s;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after { width: 100%; }
+
+        /* Main Content Area */
+        main {
+            padding: 120px 10% 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: var(--white);
+            opacity: 0.8;
+        }
+
+        /* Timeline List Styling */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background: var(--navy-light);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        li:hover {
+            transform: translateX(10px);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Mobile Menu Icon */
+        #menu-icon {
+            font-size: 2rem;
+            color: var(--white);
+            cursor: pointer;
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #menu-icon span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon { display: flex; }
+            .navbar {
+                position: absolute;
+                top: 100%; left: -100%;
+                width: 100%; height: 300px;
+                background: rgba(10, 25, 47, 0.95);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: 0.5s ease;
+                border-bottom: 2px solid var(--gold);
+            }
+            .navbar.open { left: 0; }
+            .navbar a { margin: 1.2rem 0; font-size: 1.2rem; }
+            #menu-icon.active span:nth-child(1) { transform: rotate(-45deg) translate(-6px, 6px); }
+            #menu-icon.active span:nth-child(2) { opacity: 0; }
+            #menu-icon.active span:nth-child(3) { transform: rotate(45deg) translate(-6px, -7px); }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>World Cup Timeline</h1>
-        <nav>
-            <a href="index.html">Back to Home</a>
+
+    <header class="header">
+        <a href="index.html" class="logo">GOAL<span>LINE</span></a>
+
+        <div id="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="timeline.html" class="active">Timeline</a>
+            <a href="videos.html">Videos</a>
         </nav>
     </header>
+
     <main>
+        <h1>World Cup Timeline</h1>
         <h2>Key Milestones</h2>
         <ul>
-            <li>1930 - First tournament in Uruguay.</li>
-            <li>1958 - Pelé wins his first World Cup at 17.</li>
-            <li>1970 - The first tournament broadcast in color.</li>
-            <li>2022 - Messi leads Argentina to glory in Qatar.</li>
+            <li><strong>1930</strong> - First tournament in Uruguay.</li>
+            <li><strong>1958</strong> - Pelé wins his first World Cup at 17.</li>
+            <li><strong>1970</strong> - The first tournament broadcast in color.</li>
+            <li><strong>2022</strong> - Messi leads Argentina to glory in Qatar.</li>
         </ul>
     </main>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navbar = document.querySelector('.navbar');
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('active');
+            navbar.classList.toggle('open');
+        };
+
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.onclick = () => {
+                menuIcon.classList.remove('active');
+                navbar.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html>
