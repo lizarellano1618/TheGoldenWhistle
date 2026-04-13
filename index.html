@@ -3,23 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Cup History</title>
-    <link rel="stylesheet" href="style.css">
+    <title>World Cup History Portal</title>
+    <style>
+        /* --- ANIMATED NAV STYLING --- */
+        :root {
+            --gold: #d4af37;
+            --navy: #0a192f;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--navy);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.3rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--gold); }
+
+        .navbar { display: flex; }
+
+        .navbar a {
+            font-size: 1rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 2.5rem;
+            position: relative;
+            transition: .3s;
+        }
+
+        .navbar a:hover, .navbar a.active { color: var(--gold); }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: .3s;
+        }
+
+        .navbar a:hover::after, .navbar a.active::after { width: 100%; }
+
+        /* --- CONTENT STYLING --- */
+        main {
+            padding: 120px 10% 50px; /* Top padding ensures content isn't hidden by fixed nav */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--gold);
+        }
+
+        h2 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        ul { list-style-position: inside; }
+        
+        li { margin-bottom: 10px; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- MOBILE NAV --- */
+        #menu-icon {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #menu-icon span {
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon { display: flex; }
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 100%;
+                height: 300px;
+                background: rgba(10, 25, 47, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: 0.5s ease;
+            }
+            .navbar.open { left: 0; }
+            .navbar a { margin: 1.2rem 0; }
+            #menu-icon.active span:nth-child(1) { transform: rotate(-45deg) translate(-6px, 6px); }
+            #menu-icon.active span:nth-child(2) { opacity: 0; }
+            #menu-icon.active span:nth-child(3) { transform: rotate(45deg) translate(-6px, -7px); }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>The Incredible History of the FIFA World Cup!</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-            </ul>
+    <header class="header">
+        <a href="index.html" class="logo">WORLD<span>CUP</span></a>
+        
+        <div id="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="videos.html">Videos</a>
         </nav>
     </header>
 
     <main>
         <section>
+            <h1>The Incredible History of the FIFA World Cup!</h1><br>
             <h2>The Beginning: 1930</h2>
             <p>The first ever FIFA World Cup took place in 1930, hosted and won by Uruguay. It changed the landscape of international sports forever.</p>
         </section>
@@ -38,5 +185,14 @@
         <p>&copy; 2026 World Cup History Project</p>
     </footer>
 
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navbar = document.querySelector('.navbar');
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('active');
+            navbar.classList.toggle('open');
+        };
+    </script>
 </body>
 </html>
