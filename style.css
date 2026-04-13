@@ -1,37 +1,51 @@
+/* 1. Define the World Cup Color Palette */
+:root {
+    --gold: #d4af37;
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --white: #ffffff;
+    --gray: #8892b0;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+/* 2. Apply Base Colors to the Body */
 body {
-    font-family: sans-serif;
+    background-color: var(--navy);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    margin: 0;
+}
+
+/* 3. Style Your Headers */
+h1, h2, h3 {
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+/* 4. Style Your Sections/Cards */
+section {
+    background-color: var(--navy-light);
+    border-left: 4px solid var(--gold);
     padding: 20px;
-    background-color: #f4f4f4;
-}
-
-header {
-    background: #004d99;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
-    background: white;
-    padding: 20px;
+    margin: 20px 0;
     border-radius: 8px;
-    margin-top: 20px;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+/* 5. Style Links and Buttons */
+a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--white);
+}
+
+/* 6. Footer Text */
+footer {
+    color: var(--gray);
+    text-align: center;
+    padding: 40px 0;
 }
