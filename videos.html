@@ -3,9 +3,9 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>World Cup History Portal</title>
+     <title>Iconic Moments | GOLDENWHISTLE</title>
      <style>
-         /* --- ANIMATED NAV STYLING --- */
+         /* --- SITE THEME & COLORS --- */
          :root {
              --gold: #d4af37;
              --navy: #0a192f;
@@ -25,6 +25,7 @@
              line-height: 1.6;
          }
 
+         /* --- HEADER & NAV BAR --- */
          .header {
              position: fixed;
              top: 0;
@@ -98,22 +99,17 @@
              font-size: 2rem;
          }
 
-         ul { list-style-position: inside; }
-         li { margin-bottom: 10px; }
-
-         /* --- VIDEO CONTAINER STYLING --- */
-         .video-container {
+         /* --- RESPONSIVE VIDEO WRAPPER --- */
+         .video-wrapper {
              position: relative;
-             width: 100%;
              padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
              height: 0;
-             margin-top: 20px;
              overflow: hidden;
              border-radius: 10px;
              box-shadow: 0 10px 30px rgba(0,0,0,0.5);
          }
 
-         .video-container iframe {
+         .video-wrapper iframe {
              position: absolute;
              top: 0;
              left: 0;
@@ -129,7 +125,7 @@
              color: rgba(255, 255, 255, 0.6);
          }
 
-         /* --- MOBILE NAV --- */
+         /* --- MOBILE NAV STYLES --- */
          #menu-icon {
              display: none;
              cursor: pointer;
@@ -160,13 +156,11 @@
              }
              .navbar.open { left: 0; }
              .navbar a { margin: 1.2rem 0; }
-             #menu-icon.active span:nth-child(1) { transform: rotate(-45deg) translate(-6px, 6px); }
-             #menu-icon.active span:nth-child(2) { opacity: 0; }
-             #menu-icon.active span:nth-child(3) { transform: rotate(45deg) translate(-6px, -7px); }
          }
      </style>
 </head>
 <body>
+
       <header class="header">
          <a href="index.html" class="logo"><span>GOLDEN</span>WHISTLE</a>
          
@@ -177,14 +171,30 @@
          </div>
 
          <nav class="navbar">
-             <a href="index.html" class="active">Home</a>
+             <a href="index.html">Home</a>
              <a href="timeline.html">Timeline</a>
-             <a href="videos.html">Videos</a>
+             <a href="videos.html" class="active">Videos</a>
          </nav>
       </header>
 
+      <main>
+         <section>
+             <h2>Most Iconic World Cup Moments in HISTORY</h2>
+             <p>From legendary goals to unforgettable drama, relive the magic of the FIFA World Cup.</p>
+             <br>
+             <div class="video-wrapper">
+                 <iframe 
+                    src="https://www.youtube.com/embed/phCws4VKPyY" 
+                    title="Most Iconic World Cup Moments in HISTORY" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                 </iframe>
+             </div>
+         </section>
+      </main>
+
       <footer>
-         <p>&copy; 2026 World Cup History Project</p>
+         <p>&copy; 2026 World Cup History Project | GOLDENWHISTLE</p>
       </footer>
 
       <script>
@@ -196,5 +206,6 @@
              navbar.classList.toggle('open');
          };
       </script>
+
 </body>
 </html>
