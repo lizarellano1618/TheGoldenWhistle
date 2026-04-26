@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,9 +49,13 @@
             letter-spacing: 1px;
         }
 
-        .logo span { color: var(--gold); }
+        .logo span {
+            color: var(--gold);
+        }
 
-        .navbar { display: flex; }
+        .navbar {
+            display: flex;
+        }
 
         .navbar a {
             font-size: 1rem;
@@ -62,7 +67,10 @@
             transition: .3s;
         }
 
-        .navbar a:hover, .navbar a.active { color: var(--gold); }
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--gold);
+        }
 
         .navbar a::after {
             content: '';
@@ -75,11 +83,15 @@
             transition: .3s;
         }
 
-        .navbar a:hover::after, .navbar a.active::after { width: 100%; }
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            width: 100%;
+        }
 
         /* --- CONTENT STYLING --- */
         main {
-            padding: 120px 10% 50px; /* Top padding ensures content isn't hidden by fixed nav */
+            padding: 120px 10% 50px;
+            /* Top padding ensures content isn't hidden by fixed nav */
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -98,9 +110,13 @@
             font-size: 2rem;
         }
 
-        ul { list-style-position: inside; }
-        
-        li { margin-bottom: 10px; }
+        ul {
+            list-style-position: inside;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
 
         footer {
             text-align: center;
@@ -125,7 +141,10 @@
         }
 
         @media (max-width: 768px) {
-            #menu-icon { display: flex; }
+            #menu-icon {
+                display: flex;
+            }
+
             .navbar {
                 position: absolute;
                 top: 100%;
@@ -138,19 +157,35 @@
                 justify-content: center;
                 transition: 0.5s ease;
             }
-            .navbar.open { left: 0; }
-            .navbar a { margin: 1.2rem 0; }
-            #menu-icon.active span:nth-child(1) { transform: rotate(-45deg) translate(-6px, 6px); }
-            #menu-icon.active span:nth-child(2) { opacity: 0; }
-            #menu-icon.active span:nth-child(3) { transform: rotate(45deg) translate(-6px, -7px); }
+
+            .navbar.open {
+                left: 0;
+            }
+
+            .navbar a {
+                margin: 1.2rem 0;
+            }
+
+            #menu-icon.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-6px, 6px);
+            }
+
+            #menu-icon.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #menu-icon.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-6px, -7px);
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header class="header">
         <a href="index.html" class="logo"><span>GOLDEN</span>WHISTLE</a>
-        
+
         <div id="menu-icon">
             <span></span>
             <span></span>
@@ -168,7 +203,8 @@
         <section>
             <h1>The Incredible History of the FIFA World Cup!</h1><br>
             <h2>The Beginning: 1930</h2>
-            <p>The first ever FIFA World Cup took place in 1930, hosted and won by Uruguay. It changed the landscape of international sports forever.</p>
+            <p>The first ever FIFA World Cup took place in 1930, hosted and won by Uruguay. It changed the landscape of international sports forever. In 1930, only 13 teams participated. Now, in 2026 it has expanded from 32 to 48 teams that will be participating for the first time. Every four years the World Cup is hosted in different countries. This year, it will be hosted across the United States, Mexico, and Canada. For the full history click <a href="https://en.wikipedia.org/wiki/History_of_the_FIFA_World_Cup">here.</a></p>
+            
         </section>
 
         <section>
@@ -177,6 +213,7 @@
                 <li><strong>Most Titles:</strong> Brazil (5)</li>
                 <li><strong>First Winner:</strong> Uruguay</li>
                 <li><strong>Current Champion:</strong> Argentina (2022)</li>
+                <li>Brazil is the only country that has participated in every single World Cup since it began in 1930.</li>
             </ul>
         </section>
     </main>
@@ -195,4 +232,5 @@
         };
     </script>
 </body>
+
 </html>
